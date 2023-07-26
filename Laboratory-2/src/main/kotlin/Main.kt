@@ -1,3 +1,6 @@
+import jdk.dynalink.Operation
+import javax.print.attribute.standard.NumberUp
+
 private fun calculateProduct(numbers: List<Int>):Int{
     //acc represents the acumulated number so far
     return numbers.reduce{acc,num->acc*num}
@@ -28,6 +31,15 @@ private fun evenOddList(randomNumbers: List<Int>):MutableList<List<Int>>{
     return myList
 }
 
+/**
+ * Create perfomOperation function that takes 2 numbers and lambda function
+ *
+ */
+
+private fun perfomOperator(number1: Int, number2: Int,lambda: (Int,Int)->Int ={x,y -> x*y}): Int{
+    return lambda(number2,number1)
+}
+
 fun main(args: Array<String>) {
 
     //Attempt 1
@@ -56,5 +68,11 @@ fun main(args: Array<String>) {
 
     println("\n==============\nMAPPING SAMPLE\n==============")
     namesMessage.forEach { println(it) }
+
+    //Lambda as argument
+    val myLambda: (Int,Int) -> Int = {a,b-> a * b}
+
+    val productResutlt = perfomOperator(2, 3)
+    print("\nResult of mult 2 and 3 is ${productResutlt}")
 
 }
