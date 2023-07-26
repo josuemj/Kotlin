@@ -50,6 +50,11 @@ fun main(args: Array<String>) {
     print("Is $myString palindrome? :${isPalindrome(myString)}")
     print("\nIs $palindrome palindrome? :${isPalindrome(palindrome)}")
 
-    //Mappinh
+    //
+    val names = listOf("Alice", "Bob", "Charlie")
+    var namesMessage = names.map { "Hello $it" }
+
+    println("\n==============\nMAPPING SAMPLE\n==============")
+    namesMessage.forEach { println(it) }
 
 }
